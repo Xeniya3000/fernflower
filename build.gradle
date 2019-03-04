@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'pmd'
 
 compileJava {
   sourceCompatibility '1.8'
@@ -21,4 +22,11 @@ jar {
   manifest {
     attributes 'Main-Class': 'org.jetbrains.java.decompiler.main.decompiler.ConsoleDecompiler'
   }
+  
+  pmd {
+    toolVersion = '6.8.0'
+    ignoreFailures = true
+    ruleSetFiles = files("pmd.xml")
+}
+
 }
